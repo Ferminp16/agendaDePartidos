@@ -1,0 +1,27 @@
+
+body{
+    background-color: rgb(52, 191, 255);
+}
+
+.oculto{
+    display: none;
+}
+
+#mostrarMenu{
+    height: 35px;
+    width: 20%;
+    margin-bottom: 1em;
+}
+
+#btn{
+    margin-top: 1em;
+}
+
+input{
+    height: 35px;
+    width: 20%;
+}
+.tarjeta {
+    background-color: lightgrey;
+    margin: 1vh;
+}
