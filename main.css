@@ -1,6 +1,9 @@
 
 body{
     background-color: rgb(52, 191, 255);
+    display: flex;
+    flex-direction: column;
+   align-items: center;
 }
 
 .oculto{
@@ -11,6 +14,9 @@ body{
     height: 35px;
     width: 20%;
     margin-bottom: 1em;
+}
+#menuAgregar{
+    text-align: center;
 }
 
 #btn{
@@ -23,5 +29,10 @@ input{
 }
 .tarjeta {
     background-color: lightgrey;
+    width: 80vw;
     margin: 1vh;
+}
+
+#formularioPartidos{
+width: 80vw;
 }

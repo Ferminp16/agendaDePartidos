@@ -10,6 +10,24 @@
 </head>
 
 <body>
+    <div class="botonesLogIn">
+        <button id="botonRegistrarse">Registrate</button>
+        <button id="botonInicioSesion">Iniciar sesion</button>
+    </div>
+    <div id="menuRegistro" class="oculto">
+        <form id="formRegistro">
+            <input id="mailRegistro" type="text" autocomplete="off" placeholder="E-mail">
+            <input id="passwordRegistro" type="password" autocomplete="off" placeholder="Contraseña">
+            <input id="btnRegistro" type="submit" value="Registrarse">
+        </form>
+    </div>
+    <div id="menuLogIn" class="oculto">
+        <form id="formLogIn">
+            <input id="mailLogIn" type="text" autocomplete="off" placeholder="E-mail">
+            <input id="paswordLogIn" type="password" autocomplete="off" placeholder="Contraseña">
+            <input id="btnLogIn" type="submit" value="Ingresar">
+        </form>
+    </div>
     <h1>AGENDA FUTBOLERA</h1>
     <button id="mostrarMenu"> Agregar Partido </button>
     <div id="menuAgregar" class="oculto">
@@ -25,8 +43,9 @@
     <div id="listado">
 
     </div>
-    
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

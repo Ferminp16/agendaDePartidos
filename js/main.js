@@ -6,15 +6,24 @@ class Partidos{
     }
 }
 
-// Mostrar formulario
-let mostrarMenu = document.getElementById("mostrarMenu");
-mostrarMenu.addEventListener("click", mostrarFormulario);
+//desplgar menu login
+$("#botonRegistrarse").click(registrarse)
+$("#botonInicioSesion").click(logIn)
 
+
+//boton eliminar
+
+// Mostrar formulario
+// let mostrarMenu = document.getElementById("mostrarMenu");
+// mostrarMenu.addEventListener("click", mostrarFormulario);
+
+$("#mostrarMenu").click(mostrarFormulario)
 // Guardar formuario
 
-let formulario = document.getElementById("formularioPartidos");
-formulario.addEventListener("submit", guardarPartido);
+// let formulario = document.getElementById("formularioPartidos");
+// formulario.addEventListener("submit", guardarPartido);
 
+$("#formularioPartidos").submit(guardarPartido)
 // Cargar listado al localStorage o iniciarlo
 function cargarListado() {
     let listadoPartidos = JSON.parse(localStorage.getItem("listadoPartidos"));
@@ -36,16 +45,24 @@ function guardarPartido(e){
     let equipos = document.querySelector("#equipos").value;
     let fecha = document.querySelector("#fecha").value;
     let hora = document.querySelector("#hora").value;
-
+    
     let listadoPartidos = cargarListado();
-
+    
     listadoPartidos.push(new Partidos(equipos, fecha, hora));
-
+    
     guardarListado(listadoPartidos);
-
+    
     document.getElementById("formularioPartidos").reset();
 }
 
+// Mostrar resgistrarse
+function registrarse() {
+    document.getElementById("menuRegistro").classList.toggle("oculto");
+}
+//Mostrar log in
+function logIn () {
+    document.getElementById("menuLogIn").classList.toggle("oculto");
+}
 // Mostrar menu partidos
 function mostrarFormulario() {
     document.getElementById("menuAgregar").classList.toggle("oculto");
@@ -53,22 +70,34 @@ function mostrarFormulario() {
 
 // Armar una tarjeta
 function armarTarjeta(elemento) {
+    
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("tarjeta");
-
-    const partido = document.createElement("h3");
-    partido.textContent = `Partido: ${elemento.equipos}`;
-    tarjeta.appendChild(partido);
-
-    const fecha = document.createElement("div");
-    fecha.textContent = `fecha: ${elemento.fecha}`;
-    tarjeta.appendChild(fecha);
-
-    const hora = document.createElement("div");
-    hora.textContent = `hora: ${elemento.hora}`;
-    tarjeta.appendChild(hora);
+    
+    $(".tarjeta").append(`<h3>Partido: ${elemento.equipos}</h3>
+    <div>Fecha: ${elemento.fecha}</div>
+    <div>Hora: ${elemento.hora}</div>
+    <button id="eliminar">Eliminar</button>                   
+    `)
+    
+    //    const partido = document.createElement("h3");
+    //    partido.textContent = `Partido: ${elemento.equipos}`;
+    //    tarjeta.appendChild(partido);
+    
+    //    const fecha = document.createElement("div");
+    //   fecha.textContent = `fecha: ${elemento.fecha}`;
+    //    tarjeta.appendChild(fecha);
+    
+    //    const hora = document.createElement("div");
+    //    hora.textContent = `hora: ${elemento.hora}`;
+    //    tarjeta.appendChild(hora);
     return tarjeta;
 }
+
+$("#eliminar").click(function() {
+    $(".tarjeta").remove();
+  });
+
 
 function mostrarListado(listadoPartidos) {
     let listado = document.getElementById("listado");
@@ -76,40 +105,9 @@ function mostrarListado(listadoPartidos) {
     listadoPartidos.map(elemento => {
         listado.appendChild(armarTarjeta(elemento));
     });
+    
 }
 
 
 
 mostrarListado(cargarListado());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
