@@ -1,38 +1,54 @@
 
 body{
+    height: 100vh;
     background-color: rgb(52, 191, 255);
     display: flex;
     flex-direction: column;
    align-items: center;
 }
 
-.oculto{
-    display: none;
-}
 
 #mostrarMenu{
     height: 35px;
     width: 20%;
     margin-bottom: 1em;
 }
-#menuAgregar{
-    text-align: center;
-}
 
-#btn{
+button, #btn, #btnLogIn, #btnRegistro{
+    background-color: rgb(184, 247, 255);
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
     margin-top: 1em;
 }
 
 input{
     height: 35px;
     width: 20%;
+    margin: 4px;
+    background-color: rgb(183, 220, 224) ;
+    
 }
 .tarjeta {
-    background-color: lightgrey;
+    background-color: rgb(183, 220, 224);
+    padding: 2px;
     width: 80vw;
     margin: 1vh;
+    border: black solid 2px;
+    border-radius: 5px;
+}
+ #formRegistro, #formLogIn{
+    text-align: center;
+    margin: 4px;
+} 
+#formularioPartidos{
+    width: 80vw;
+}
+#menuAgregar{
+    text-align: center;
 }
 
-#formularioPartidos{
-width: 80vw;
+.oculto{
+    display: none;
 }

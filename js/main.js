@@ -6,10 +6,29 @@ class Partidos{
     }
 }
 
-//desplgar menu login
-$("#botonRegistrarse").click(registrarse)
-$("#botonInicioSesion").click(logIn)
+const URL = "https://jsonplaceholder.typicode.com";
 
+//desplgar menu login
+// $("#botonRegistrarse").click(registrarse)
+// $("#botonInicioSesion").click(logIn)
+
+$(() => {
+    $("#botonRegistrarse").click( function () {
+        $("#formRegistro").slideToggle("slow")
+    })
+})
+
+// $(() => {
+//     $("#botonInicioSesion").click( function () {
+//         $("#formLogIn").slideToggle("slow")
+//     })
+// })
+
+$(() => {
+    $("#mostrarMenu").click( function () {
+        $("#formularioPartidos").slideToggle("slow")
+    })
+})
 
 //boton eliminar
 
@@ -17,7 +36,7 @@ $("#botonInicioSesion").click(logIn)
 // let mostrarMenu = document.getElementById("mostrarMenu");
 // mostrarMenu.addEventListener("click", mostrarFormulario);
 
-$("#mostrarMenu").click(mostrarFormulario)
+// $("#mostrarMenu").click(mostrarFormulario)
 // Guardar formuario
 
 // let formulario = document.getElementById("formularioPartidos");
@@ -56,17 +75,17 @@ function guardarPartido(e){
 }
 
 // Mostrar resgistrarse
-function registrarse() {
-    document.getElementById("menuRegistro").classList.toggle("oculto");
-}
-//Mostrar log in
-function logIn () {
-    document.getElementById("menuLogIn").classList.toggle("oculto");
-}
-// Mostrar menu partidos
-function mostrarFormulario() {
-    document.getElementById("menuAgregar").classList.toggle("oculto");
-}
+// function registrarse() {
+//     document.getElementById("menuRegistro").classList.toggle("oculto");
+// }
+// //Mostrar log in
+// function logIn () {
+//     document.getElementById("menuLogIn").classList.toggle("oculto");
+// }
+// // Mostrar menu partidos
+// function mostrarFormulario() {
+//     document.getElementById("menuAgregar").classList.toggle("oculto");
+// }
 
 // Armar una tarjeta
 function armarTarjeta(elemento) {
@@ -94,10 +113,11 @@ function armarTarjeta(elemento) {
     return tarjeta;
 }
 
-$("#eliminar").click(function() {
-    $(".tarjeta").remove();
+$(() => {
+    $("#eliminar").click(function() {
+    $("#eliminar").parent().remove();
   });
-
+})
 
 function mostrarListado(listadoPartidos) {
     let listado = document.getElementById("listado");
@@ -111,3 +131,25 @@ function mostrarListado(listadoPartidos) {
 
 
 mostrarListado(cargarListado());
+
+const infoPost = {
+	nombre: "Fermin",
+	equipo: "Racing Club",
+};
+
+
+
+$("#botonInicioSesion").click(() => {
+	$.post(`${URL}/posts`, infoPost, ({ nombre, equipo }, state) => {
+		if (state === "success") {
+			$(".botonesLogIn").append(
+				`<div>
+                <h3>Bienvenido:
+                                 Nombre: ${nombre}
+                                 Hincha de ${equipo}
+                                               </h3>
+                                                </div>`
+			);
+		}
+	});
+});
