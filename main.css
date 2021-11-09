@@ -1,4 +1,6 @@
-
+*{
+   margin: 0px;
+}
 body{
     height: 100vh;
     background-color: rgb(52, 191, 255);
@@ -6,6 +8,23 @@ body{
     flex-direction: column;
    align-items: center;
 }
+
+header{
+    
+    width: 100%;
+}
+
+.titulo{
+    background-color: #273036;
+    color:rgb(52, 191, 255) ;
+}
+h1{
+    font-size: 3rem;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 2rem;
+}
+
 
 
 #mostrarMenu{
@@ -28,6 +47,8 @@ input{
     width: 20%;
     margin: 4px;
     background-color: rgb(183, 220, 224) ;
+    border-radius: 3px;
+    
     
 }
 .tarjeta {
@@ -35,6 +56,7 @@ input{
     padding: 2px;
     width: 80vw;
     margin: 1vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     border: black solid 2px;
     border-radius: 5px;
 }
@@ -51,4 +73,10 @@ input{
 
 .oculto{
     display: none;
+}
+
+footer{
+    width: 100%;
+ 
+    
 }

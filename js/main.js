@@ -9,8 +9,7 @@ class Partidos{
 const URL = "https://jsonplaceholder.typicode.com";
 
 //desplgar menu login
-// $("#botonRegistrarse").click(registrarse)
-// $("#botonInicioSesion").click(logIn)
+
 
 $(() => {
     $("#botonRegistrarse").click( function () {
@@ -18,11 +17,7 @@ $(() => {
     })
 })
 
-// $(() => {
-//     $("#botonInicioSesion").click( function () {
-//         $("#formLogIn").slideToggle("slow")
-//     })
-// })
+
 
 $(() => {
     $("#mostrarMenu").click( function () {
@@ -31,16 +26,16 @@ $(() => {
 })
 
 //boton eliminar
+$(() => {
+    $("#eliminar").click(function() {
+    $("#eliminar").parent().remove();
+  });
+})
 
-// Mostrar formulario
-// let mostrarMenu = document.getElementById("mostrarMenu");
-// mostrarMenu.addEventListener("click", mostrarFormulario);
 
-// $("#mostrarMenu").click(mostrarFormulario)
 // Guardar formuario
 
-// let formulario = document.getElementById("formularioPartidos");
-// formulario.addEventListener("submit", guardarPartido);
+
 
 $("#formularioPartidos").submit(guardarPartido)
 // Cargar listado al localStorage o iniciarlo
@@ -74,18 +69,6 @@ function guardarPartido(e){
     document.getElementById("formularioPartidos").reset();
 }
 
-// Mostrar resgistrarse
-// function registrarse() {
-//     document.getElementById("menuRegistro").classList.toggle("oculto");
-// }
-// //Mostrar log in
-// function logIn () {
-//     document.getElementById("menuLogIn").classList.toggle("oculto");
-// }
-// // Mostrar menu partidos
-// function mostrarFormulario() {
-//     document.getElementById("menuAgregar").classList.toggle("oculto");
-// }
 
 // Armar una tarjeta
 function armarTarjeta(elemento) {
@@ -99,25 +82,10 @@ function armarTarjeta(elemento) {
     <button id="eliminar">Eliminar</button>                   
     `)
     
-    //    const partido = document.createElement("h3");
-    //    partido.textContent = `Partido: ${elemento.equipos}`;
-    //    tarjeta.appendChild(partido);
-    
-    //    const fecha = document.createElement("div");
-    //   fecha.textContent = `fecha: ${elemento.fecha}`;
-    //    tarjeta.appendChild(fecha);
-    
-    //    const hora = document.createElement("div");
-    //    hora.textContent = `hora: ${elemento.hora}`;
-    //    tarjeta.appendChild(hora);
+   
     return tarjeta;
 }
 
-$(() => {
-    $("#eliminar").click(function() {
-    $("#eliminar").parent().remove();
-  });
-})
 
 function mostrarListado(listadoPartidos) {
     let listado = document.getElementById("listado");
@@ -144,11 +112,11 @@ $("#botonInicioSesion").click(() => {
 		if (state === "success") {
 			$(".botonesLogIn").append(
 				`<div>
-                <h3>Bienvenido:
-                                 Nombre: ${nombre}
-                                 Hincha de ${equipo}
-                                               </h3>
-                                                </div>`
+                <h3>Bienvenido:</h3>
+                                 <h4>Nombre: ${nombre}</h4>
+                                 <h4>Hincha de ${equipo}</h4>
+                </div>`
+                                               
 			);
 		}
 	});
